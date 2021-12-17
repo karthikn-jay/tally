@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+
+    <title>Hello World</title>
+</head>
+<body>
+    <!--<h1 th:text="${hello}"></h1>-->
+
+    <div id="fullscreen_bg" class="fullscreen_bg"/>
+
+    <div class="container">
+
+        <h4 th:text="${errorMsg}"></h4>
+
+        <form class="form-signin" action="#" th:action="@{/login}" th:object="${loginVO}" method="post">
+            <h1 class="form-signin-heading text-muted">Sign In</h1>
+            <input type="text" class="form-control" placeholder="Enter Username" required="" autofocus="" th:field="*{username}">
+            <input type="password" class="form-control" placeholder="Enter Password" required="" th:field="*{password}">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                Sign In
+            </button>
+        </form>
+
+    </div>
+</body>
+</html>
