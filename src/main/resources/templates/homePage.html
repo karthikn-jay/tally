@@ -10,6 +10,32 @@
     <title>Hello World</title>
 </head>
 <body>
-    Welcome <h3 th:text="${session.username}"></h3>
+    Welcome <h3 th:text="${session.username}"></h3> <a href="/">Logout</a>
+
+    <br/>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Item Size</th>
+            <th scope="col">Item Quantity</th>
+            <th scope="col">Item Value</th>
+            <!--<th scope="col">Total Amount</th>-->
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="${transacionsVOList.empty}">
+                <td colspan="4">No Data Available</td>
+            </tr>
+            <tr th:each="transactionsVO : ${transactionsVOList}">
+                <td><span th:text="${transactionsVO.name}"></span></td>
+                <td><span th:text="${transactionsVO.itemSize}"></span></td>
+                <td><span th:text="${transactionsVO.itemQty}"></span></td>
+                <td><span th:text="${transactionsVO.itemVal}"></span></td>
+                <!--<td><span th:text="${transactionsVO.itemQty * transactionsVO.itemVal}"></span></td>-->
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
